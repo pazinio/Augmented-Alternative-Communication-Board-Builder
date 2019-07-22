@@ -72,7 +72,7 @@ class Upload extends Component {
 
       const formData = new FormData();
       formData.append("file", file, file.name);
-        req.open("POST", "http://localhost:7071/api/ObjectDetection");
+        req.open("POST", "https://aac-fa.azurewebsites.net/api/ObjectDetection");
         formData.append("ContentType","multipart/form-data");
         req.send(formData);     
     });
