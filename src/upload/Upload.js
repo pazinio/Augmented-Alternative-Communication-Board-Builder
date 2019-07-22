@@ -72,9 +72,9 @@ class Upload extends Component {
 
       const formData = new FormData();
       formData.append("file", file, file.name);
-
-      req.open("POST", "http://localhost:8000/upload");
-      req.send(formData);
+        req.open("POST", "http://localhost:7071/api/ObjectDetection");
+        formData.append("ContentType","multipart/form-data");
+        req.send(formData);     
     });
   }
 
