@@ -32,12 +32,21 @@ class Upload extends Component {
       promises.push(this.sendRequest(file));
     });
     try {
-      await Promise.all(promises);
+      await Promise.all(promises).then(function(values) {
+        console.log(values);
+      });
 
       this.setState({ successfullUploaded: true, uploading: false });
+
+      //change parent state
+
+      this.props.uploadedHandler(true)
     } catch (e) {
-      // Not Production ready! Do some error handling here instead...
-      this.setState({ successfullUploaded: true, uploading: false });
+        console.log("Failed!!!!")
+        console.log(e)
+        // Not Production ready! Do some error handling here instead...
+        this.props.uploadedHandler(true)
+        this.setState({ successfullUploaded: true, uploading: false });
     }
   }
 
@@ -60,6 +69,7 @@ class Upload extends Component {
         const copy = { ...this.state.uploadProgress };
         copy[file.name] = { state: "done", percentage: 100 };
         this.setState({ uploadProgress: copy });
+        console.log("resp -->" + JSON.stringify(req.response))
         resolve(req.response);
       });
 
