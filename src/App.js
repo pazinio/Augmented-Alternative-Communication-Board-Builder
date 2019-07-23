@@ -7,11 +7,17 @@ import Upload from './upload/Upload'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-          <Upload />
-      </header>
 
+      <header className="App-header">
+        <img src='logo1.png' className="App-logo" alt="logo" />
+      </header>
+    <body>
+      <p>
+        AAC Board Builder
+      </p>
+
+      <Upload />
+    </body>
     </div>
   );
 }
