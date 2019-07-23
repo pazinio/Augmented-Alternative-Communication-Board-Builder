@@ -29,11 +29,15 @@ class App extends Component {
         <img src='logo1.png' className="App-logo" alt="logo" />
       </header>
     
-    <body>
+    <body> 
       <p> AAC Board Builder </p>
       
       <div>
-        {this.state.uploaded ?  <BasicLayout/> : <Upload uploadedHandler = {this.uploadedHandler} />}
+        {this.state.uploaded ?  <BasicLayout/> : 
+        <div>
+          <Upload uploadedHandler = {this.uploadedHandler} />
+        </div>
+        }
       </div>
     </body>
     </div>
