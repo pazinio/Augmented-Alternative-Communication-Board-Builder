@@ -175,3 +175,12 @@
     background: #ccc;
     border: 1px solid black;
   }
+
+  .object-text {
+      font-size: 10px
+  }
+
+  .subject-img {
+    max-width:10%;
+    max-height:10%; 
+ }

@@ -32,25 +32,19 @@ class Upload extends Component {
       promises.push(this.sendRequest(file));
     });
     try {
-      await Promise.all(promises).then(function(values) {
-        console.log(values);
-      });
-
+      await Promise.all(promises)
       this.setState({ successfullUploaded: true, uploading: false });
-
-      //change parent state
-
-      this.props.uploadedHandler(true)
     } catch (e) {
-        console.log("Failed!!!!")
-        console.log(e)
+        console.log("Failed!!!! exp:" + e)
         // Not Production ready! Do some error handling here instead...
-        this.props.uploadedHandler(true)
         this.setState({ successfullUploaded: true, uploading: false });
     }
   }
 
   sendRequest(file) {
+
+    var self = this
+
     return new Promise((resolve, reject) => {
       const req = new XMLHttpRequest();
 
@@ -69,7 +63,6 @@ class Upload extends Component {
         const copy = { ...this.state.uploadProgress };
         copy[file.name] = { state: "done", percentage: 100 };
         this.setState({ uploadProgress: copy });
-        console.log("resp -->" + JSON.stringify(req.response))
         resolve(req.response);
       });
 
@@ -82,7 +75,15 @@ class Upload extends Component {
 
       const formData = new FormData();
       formData.append("file", file, file.name);
-        req.open("POST", "https://aac-fa.azurewebsites.net/api/ObjectDetection");
+        req.open("POST", "https://aac-fa.azurewebsites.net/api/GenerateBoard");
+        req.onreadystatechange = function(e){
+          if (req.readyState === 4 && req.status === 200) {
+
+            console.log("ok, response :", this.response);
+            // self.
+            self.props.uploadedHandler(true, JSON.parse(this.response))
+          }
+        }
         formData.append("ContentType","multipart/form-data");
         req.send(formData);     
     });

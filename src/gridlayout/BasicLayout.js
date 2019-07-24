@@ -16,19 +16,18 @@ class BasicLayout extends React.PureComponent {
 
   constructor(props) {
     super(props);
-
     const layout = this.generateLayout();
     this.state = { layout };
   }
 
   generateDOM() {
-    return _.map(_.range(this.props.items), function(i) {
+    const resp = this.props.resp
+    return  _.map(_.range(this.props.items), function(i) {
+      const index = i >9? 9 : i
       return (
         <div key={i}>
-          <span className="text">{i}
-          { i % 2 === 0 ?  
-            <img src='test1.jpg' alt={i}/> :
-            <img src='test2.jpg' alt={i} />}
+          <span className="object-text">{resp.objects[index].name}
+            <img src={ resp.objects[index].iconUri } alt="" /> 
           </span>
         </div>
       );
@@ -55,13 +54,19 @@ class BasicLayout extends React.PureComponent {
 
   render() {
     return (
-      <ReactGridLayout
-        layout={this.state.layout}
-        onLayoutChange={this.onLayoutChange}
-        {...this.props}
-      >
-        {this.generateDOM()}
-      </ReactGridLayout>
+      <div>
+        <div> 
+         <p> {this.props.resp.subject} </p>
+          <img className="subject-img" src={this.props.resp.iconUri } alt=''/> 
+        </div>
+        <ReactGridLayout
+          layout={this.state.layout}
+          onLayoutChange={this.onLayoutChange}
+          {...this.props}
+        >
+          {this.generateDOM()}
+        </ReactGridLayout>
+      </div>
     );
   }
 }

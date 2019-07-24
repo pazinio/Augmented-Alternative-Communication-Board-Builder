@@ -15,9 +15,10 @@ class App extends Component {
     }
   }
 
-  uploadedHandler(someValue) {
+  uploadedHandler(uploaded, resp) {
     this.setState({
-      uploaded: someValue
+      uploaded,
+      resp
     })
   }
 
@@ -33,10 +34,11 @@ class App extends Component {
       <p> AAC Board Builder </p>
       
       <div>
-        {this.state.uploaded ?  <BasicLayout/> : 
-        <div>
-          <Upload uploadedHandler = {this.uploadedHandler} />
-        </div>
+        {
+          this.state.uploaded ?  
+        <BasicLayout resp = {this.state.resp} /> 
+        : 
+        <Upload uploadedHandler = {this.uploadedHandler} />
         }
       </div>
     </body>
