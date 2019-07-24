@@ -22,7 +22,7 @@ class BasicLayout extends React.PureComponent {
 
   generateDOM() {
     const resp = this.props.resp
-    return  _.map(_.range(this.props.items), function(i) {
+    return  _.map(_.range(resp.objects.length), function(i) {
       return (
         <div key={i}>
           <span className="object-text">{resp.objects[i].name}
