@@ -23,11 +23,10 @@ class BasicLayout extends React.PureComponent {
   generateDOM() {
     const resp = this.props.resp
     return  _.map(_.range(this.props.items), function(i) {
-      const index = i >9? 9 : i
       return (
         <div key={i}>
-          <span className="object-text">{resp.objects[index].name}
-            <img className="object-img" src={ resp.objects[index].iconUri } alt="" /> 
+          <span className="object-text">{resp.objects[i].name}
+            <img className="object-img" src={ resp.objects[i].iconUri } alt="" /> 
           </span>
         </div>
       );
