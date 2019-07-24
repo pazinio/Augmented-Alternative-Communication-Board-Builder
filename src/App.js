@@ -27,11 +27,12 @@ class App extends Component {
     <div className="App">
 
       <header className="App-header">
-        <img src='logo1.png' className="App-logo" alt="logo" />
+      <img src='logo1.png' className="App-logo" alt="logo" />
+      <p> AAC Board Builder </p>
+
       </header>
     
-    <body> 
-      <p> AAC Board Builder </p>
+    {/* <body>  */}
       
       <div>
         {
@@ -41,7 +42,7 @@ class App extends Component {
         <Upload uploadedHandler = {this.uploadedHandler} />
         }
       </div>
-    </body>
+    {/* </body> */}
     </div>
   );
   }

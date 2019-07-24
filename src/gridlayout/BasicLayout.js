@@ -8,8 +8,8 @@ const ReactGridLayout = WidthProvider(RGL);
 class BasicLayout extends React.PureComponent {
   static defaultProps = {
     className: "layout",
-    items: 20,
-    rowHeight: 30,
+    items: 10,
+    rowHeight: 100,
     onLayoutChange: function() {},
     cols: 12
   };
@@ -27,7 +27,7 @@ class BasicLayout extends React.PureComponent {
       return (
         <div key={i}>
           <span className="object-text">{resp.objects[index].name}
-            <img src={ resp.objects[index].iconUri } alt="" /> 
+            <img className="object-img" src={ resp.objects[index].iconUri } alt="" /> 
           </span>
         </div>
       );
@@ -39,8 +39,8 @@ class BasicLayout extends React.PureComponent {
     return _.map(new Array(p.items), function(item, i) {
       const y = _.result(p, "y") || Math.ceil(Math.random() * 4) + 1;
       return {
-        x: (i * 2) % 12,
-        y: Math.floor(i / 6) * y,
+        x: (i * 2) % 8,
+        y: Math.floor(i / 4) * y,
         w: 2,
         h: 2,
         i: i.toString()
@@ -57,7 +57,12 @@ class BasicLayout extends React.PureComponent {
       <div>
         <div> 
          <p> {this.props.resp.subject} </p>
+           Subject:
           <img className="subject-img" src={this.props.resp.iconUri } alt=''/> 
+
+          Original:
+          <img className="subject-img" src={this.props.resp.originalImageUri } alt=''/> 
+
         </div>
         <ReactGridLayout
           layout={this.state.layout}
