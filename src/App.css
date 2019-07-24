@@ -22,7 +22,6 @@
   box-sizing: border-box;
 }
 
-/* .App-logo {
-  float:left;
-  margin: 50px
-} */
+.App-logo {
+  margin: 5px 10px 10px 10px
+}

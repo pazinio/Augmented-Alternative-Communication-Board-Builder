@@ -68,9 +68,9 @@
 
 button {
   font-family: "Roboto medium", sans-serif;
-  font-size: 14px;
+  font-size: 24px;
   display: inline-block;
-  height: 36px;
+  height: 56px;
   min-width: 88px;
   padding: 6px 16px;
   line-height: 1.42857143;
@@ -86,9 +86,10 @@ button {
   user-select: none;
   border: 0;
   border-radius: 2px;
-  background: rgba(103, 58, 183, 1);
+  background: rgb(58, 61, 183);
   color: #fff;
   outline: 0;
+  margin: 100px 100px 100px
 }
 
 button:disabled {

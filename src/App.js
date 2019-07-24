@@ -28,7 +28,7 @@ class App extends Component {
 
       {/* <header className="App-header"> */}
       <p> <img src='logo1.png' className="App-logo" alt="logo" />
-      AAC Board Builder </p>
+      Augmented & Alternative Communication Board Builder </p>
 
       {/* </header> */}
     
