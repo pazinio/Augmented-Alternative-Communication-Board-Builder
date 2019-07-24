@@ -80,6 +80,7 @@ class Upload extends Component {
           if (req.readyState === 4 && req.status === 200) {
 
             console.log("ok, response :", this.response);
+            console.log("Yoav!!!")
             // self.
             self.props.uploadedHandler(true, JSON.parse(this.response))
           }
