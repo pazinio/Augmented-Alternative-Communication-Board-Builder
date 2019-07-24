@@ -33,7 +33,7 @@ class Upload extends Component {
     });
     try {
       await Promise.all(promises)
-      this.setState({ successfullUploaded: true, uploading: false });
+      // this.setState({ successfullUploaded: true, uploading: false });
     } catch (e) {
         console.log("Failed!!!! exp:" + e)
         // Not Production ready! Do some error handling here instead...
@@ -81,6 +81,8 @@ class Upload extends Component {
 
             console.log("ok, response :", this.response);
             console.log("Yoav!!!")
+            self.setState({ successfullUploaded: true, uploading: false });
+
             // self.
             self.props.uploadedHandler(true, JSON.parse(this.response))
           }

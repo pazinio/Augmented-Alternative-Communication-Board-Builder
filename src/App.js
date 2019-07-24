@@ -43,7 +43,9 @@ class App extends Component {
               Original: <img className="subject-img" src={this.state.resp.originalImageUri } alt=''/> 
 
             <BasicLayout arr = {this.state.resp.objects} /> 
+            <div> Actions: </div> 
             <BasicLayout arr = {this.state.resp.actions} /> 
+            <div> Rections: </div> 
             <BasicLayout arr = {this.state.resp.reactions} /> 
         </div>
         : 
