@@ -21,13 +21,12 @@ class BasicLayout extends React.PureComponent {
   }
 
   generateDOM() {
-    const resp = this.props.resp
-    return  _.map(_.range(resp.objects.length), function(i) {
+    const arr = this.props.arr
+    return  _.map(_.range(arr.length), function(i) {
       return (
         <div key={i}>
-          <span className="object-text">{resp.objects[i].name}
-            <img className="object-img" src={ resp.objects[i].iconUri } alt="" /> 
-          </span>
+          <span className="object-text">{arr[i].name} </span>
+          <img className="object-img" src={ arr[i].iconUri } alt="" /> 
         </div>
       );
     });
@@ -38,13 +37,18 @@ class BasicLayout extends React.PureComponent {
     return _.map(new Array(p.items), function(item, i) {
       const y = _.result(p, "y") || Math.ceil(Math.random() * 4) + 1;
       return {
-        x: (i * 2) % 8,
+        x: (i * 3) % 12,
         y: Math.floor(i / 4) * y,
-        w: 2,
-        h: 2,
+        w: 3,
+        h: 1,
         i: i.toString()
       };
     });
+    // var arr = []
+    // for(i=0; i<this.props.resp.objects; i++){
+    //   arr.push({x:i, y:0})
+    // }
+
   }
 
   onLayoutChange(layout) {
@@ -52,17 +56,7 @@ class BasicLayout extends React.PureComponent {
   }
 
   render() {
-    return (
-      <div>
-        <div> 
-         <p> {this.props.resp.subject} </p>
-           Subject:
-          <img className="subject-img" src={this.props.resp.iconUri } alt=''/> 
-
-          Original:
-          <img className="subject-img" src={this.props.resp.originalImageUri } alt=''/> 
-
-        </div>
+    return (    
         <ReactGridLayout
           layout={this.state.layout}
           onLayoutChange={this.onLayoutChange}
@@ -70,7 +64,6 @@ class BasicLayout extends React.PureComponent {
         >
           {this.generateDOM()}
         </ReactGridLayout>
-      </div>
     );
   }
 }

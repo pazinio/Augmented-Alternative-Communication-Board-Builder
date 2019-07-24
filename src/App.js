@@ -26,18 +26,26 @@ class App extends Component {
     return (
     <div className="App">
 
-      <header className="App-header">
-      <img src='logo1.png' className="App-logo" alt="logo" />
-      <p> AAC Board Builder </p>
+      {/* <header className="App-header"> */}
+      <p> <img src='logo1.png' className="App-logo" alt="logo" />
+      AAC Board Builder </p>
 
-      </header>
+      {/* </header> */}
     
     {/* <body>  */}
       
       <div>
         {
           this.state.uploaded ?  
-        <BasicLayout resp = {this.state.resp} /> 
+          <div>
+            <p> {this.state.resp.subject} </p>
+              Subject:  <img className="subject-img" src={this.state.resp.iconUri } alt=''/> 
+              Original: <img className="subject-img" src={this.state.resp.originalImageUri } alt=''/> 
+
+            <BasicLayout arr = {this.state.resp.objects} /> 
+            <BasicLayout arr = {this.state.resp.actions} /> 
+            <BasicLayout arr = {this.state.resp.reactions} /> 
+        </div>
         : 
         <Upload uploadedHandler = {this.uploadedHandler} />
         }

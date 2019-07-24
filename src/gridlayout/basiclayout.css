@@ -1,7 +1,7 @@
 .react-grid-layout {
     position: relative;
     transition: height 200ms ease;
-    margin: 50px 0px 30px 100px;
+    /* margin: 50px 0px 30px 100px; */
   }
   .react-grid-item {
     transition: all 200ms ease;
