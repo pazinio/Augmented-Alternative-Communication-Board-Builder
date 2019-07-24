@@ -84,6 +84,8 @@ class Upload extends Component {
             self.props.uploadedHandler(true, JSON.parse(this.response))
           }
         }
+        //req.open("POST", "/api/GenerateBoard");
+        //,  "proxy": "http://localhost:7071"
         formData.append("ContentType","multipart/form-data");
         req.send(formData);     
     });
